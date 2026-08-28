@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buku Robotika & IOT - Muwatok Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <style>
+        
+        body {
+            background: #f0f4f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #f0f4f8;
+            background-image: url("assets/img/pattern-pcb.jpeg");
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-size: auto; /* or 300px 300px if you want specific scale */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .book-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            padding: 2.5rem 3rem;
+        }
+        .chapter-title {
+            border-left: 8px solid #0d6efd;
+            padding-left: 1.2rem;
+            margin-top: 2.8rem;
+            margin-bottom: 1.8rem;
+            color: #0a58ca;
+            font-weight: 700;
+        }
+        .section-title {
+            border-left: 6px solid #0d6efd;
+            padding-left: 1rem;
+            margin-top: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: #1e293b;
+            font-weight: 600;
+        }
+        .sub-section {
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+        .analogi-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+        .analogi-box i {
+            color: #0284c7;
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+        .tips-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+        .tips-box i {
+            color: #d97706;
+        }
+        .danger-box {
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+        .danger-box i {
+            color: #dc2626;
+        }
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 1rem 0;
+        }
+        .code-block .com {
+            color: #94a3b8;
+        }
+        .code-block .kw {
+            color: #38bdf8;
+        }
+        .code-block .str {
+            color: #fbbf24;
+        }
+        .code-block .num {
+            color: #a78bfa;
+        }
+        .code-block .fn {
+            color: #a78bfa;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc-list li {
+            margin-bottom: 0.2rem;
+        }
+        .toc-list a {
+            text-decoration: none;
+            color: #0d6efd;
+            font-weight: 500;
+            display: block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+        .toc-list a:hover {
+            background: #e9ecef;
+            text-decoration: underline;
+        }
+        .fab-toc {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            z-index: 1040;
+            transition: 0.2s;
+        }
+        .fab-toc:hover {
+            background: #0a58ca;
+            transform: scale(1.05);
+        }
+        .fab-download {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #198754;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(25, 135, 84, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            z-index: 1040;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .fab-download:hover {
+            background: #157347;
+            transform: scale(1.05);
+        }
+        .badge-chapter {
+            background: #0d6efd;
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+            display: inline-block;
+        }
+        .badge-bab2 {
+            background: #fd7e14;
+        }
+        .badge-bab3 {
+            background: #198754;
+        }
+        .glossary-term {
+            font-weight: 600;
+            color: #0a58ca;
+            cursor: help;
+            border-bottom: 1px dashed #0a58ca;
+        }
+        @media (max-width: 768px) {
+            .book-card {
+                padding: 1.2rem;
+            }
+        }
+        html {
+            scroll-padding-top: 20px;
+        }
+
+        /* ========== PERBAIKAN GAMBAR ========== */
+        .img-placeholder {
+            background: #e9ecef;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 0.75rem;
+            border: 2px dashed #adb5bd;
+            color: #495057;
+            font-style: italic;
+            margin: 1rem 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .img-placeholder img {
+            max-width: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 6px;
+            display: block;
+        }
+        .img-placeholder .img-desc {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        /* ========== LIGHTBOX ========== */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+        .lightbox-overlay.show {
+            display: flex;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 95vw;
+            max-height: 95vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: zoomIn 0.2s ease-out;
+        }
+        .lightbox-content img {
+            max-width: 95vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: 0.2s;
+            line-height: 1;
+            background: transparent;
+            border: none;
+        }
+        .lightbox-close:hover {
+            color: #fbbf24;
+            transform: scale(1.1);
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* ========== PRINT & PDF ========== */
+        @media print {
+            body { background: white !important; padding: 0 !important; margin: 0 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .main-container { max-width: 100% !important; padding: 0 !important; }
+            .book-card { box-shadow: none !important; padding: 20px !important; border-radius: 0 !important; margin: 0 !important; }
+            .fab-toc, .fab-download, .offcanvas, #lightbox, .btn-close { display: none !important; }
+            .img-fluid, img, .img-placeholder, table, .table-wrapper, .code-block, .analogi-box, .tips-box, .danger-box, .card { page-break-inside: avoid !important; break-inside: avoid !important; max-width: 100% !important; height: auto !important; }
+            h1, h2, h3, h4, h5, h6, .chapter-title, .section-title, .sub-section { page-break-after: avoid !important; break-after: avoid !important; }
+            .row { display: block !important; }
+            .col-md-6, .col-md-4, .col-md-8, .col-sm-12 { width: 100% !important; max-width: 100% !important; flex: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+            .alert { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container main-container py-4">
+        <div class="book-card">
+
+            <!-- ========== HEADER ========== -->
+            <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
+                <i class="bi bi-robot fs-1 text-primary"></i>
+                <div>
+                    <h1 class="display-5 fw-bold text-primary mb-0">Belajar Robotika &amp; IOT</h1>
+                    <p class="text-muted fs-5">Materi Lengkap — <strong>Muwatok Project</strong></p>
+                </div>
+            </div>
+
+            <!-- ========== DAFTAR ISI ========== -->
+            <div class="bg-light p-4 rounded-3 border mb-5">
+                <h2 class="h5 fw-bold"><i class="bi bi-list-ul me-2"></i>Daftar Isi Lengkap</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6 class="fw-bold text-primary mt-2"><i class="bi bi-1-circle"></i> BAB I — Pengenalan</h6>
+                        <ul class="toc-list">
+                            <li><a href="#bab1">Apa itu Robotika?</a></li>
+                            <li><a href="#bab1-iot">Apa itu IOT?</a></li>
+                            <li><a href="#bab1a">A. Mekanikal</a></li>
+                            <li><a href="#bab1b">B. Elektronika</a></li>
+                            <li><a href="#bab1c">C. Pemrograman</a></li>
+                        </ul>
+                        <h6 class="fw-bold text-warning mt-3"><i class="bi bi-2-circle"></i> BAB II — Elektronika Dasar</h6>
+                        <ul class="toc-list">
+                            <li><a href="#bab2">Pengantar Elektronika</a></li>
+                            <li><a href="#bab2a">1. Arus &amp; Tegangan</a></li>
+                            <li><a href="#bab2b">2. Power Supply</a></li>
+                            <li><a href="#bab2c">3. Dioda</a></li>
+                            <li><a href="#bab2d">4. Kapasitor</a></li>
+                            <li><a href="#bab2e">5. Resistor</a></li>
+                            <li><a href="#bab2f">6. Transistor</a></li>
+                            <li><a href="#bab2g">7. IC &amp; Mikrokontroler</a></li>
+                            <li><a href="#bab2h">8. Motor &amp; Driver Motor</a></li>
+                            <li><a href="#bab2i">9. Protokol Komunikasi (Interface)</a></li>
+                            <li><a href="#bab2j">10. Sensor &amp; Transduser</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="fw-bold text-warning mt-2">&nbsp;</h6>
+                        <ul class="toc-list">
+                            <li><a href="#bab3">BAB III — Pemrograman</a></li>
+                            <li><a href="#bab3a">1. Algoritma</a></li>
+                            <li><a href="#bab3b">2. Variable</a></li>
+                            <li><a href="#bab3c">3. Tipe Data</a></li>
+                            <li><a href="#bab3d">4. Function</a></li>
+                            <li><a href="#bab3e">5. Array</a></li>
+                            <li><a href="#bab3f">6. Extension &amp; Catatan</a></li>
+                            <li><a href="#bab3g">7. Pemrograman Mikrokontroler</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-3 border border-primary border-opacity-25 mt-3">
+                            <i class="bi bi-book fs-2 text-primary"></i>
+                            <p class="fw-semibold mt-1 mb-0">3 Bab • 20+ Sub-bab</p>
+                            <p class="small text-muted">Dilengkapi analogi, contoh, dan kode</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- BAB I -->
+            <!-- ============================================================ -->
+            <h1 id="bab1" class="chapter-title"><span class="badge-chapter">BAB I</span> Pengenalan Robotika &amp; IOT</h1>
+
+            <h2 class="section-title">🤖 Apa Itu Robotika?</h2>
+            <p><strong>Robotika</strong> adalah ilmu yang mempelajari tentang <span class="keyword-def">desain</span> (perancangan), <span class="keyword-def">konstruksi</span> (pembuatan), <span class="keyword-def">operasi</span> (pengoperasian), dan <span class="keyword-def">aplikasi</span> (penggunaan) robot.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-lightbulb-fill"></i> <strong>Bayangkan ini:</strong> Jika kamu melihat <strong>mesin vakum otomatis</strong> yang berputar-putar membersihkan lantai tanpa ditabrak tembok, atau <strong>drone</strong> yang menyiram tanaman di kebun — itu adalah contoh <strong>robotika dalam kehidupan nyata</strong>.
+            </div>
+
+            <p><strong>Mengapa Robotika Penting?</strong> Di tahun 2025, robot sudah menggantikan banyak pekerjaan manusia, terutama yang:</p>
+            <ul>
+                <li><strong>Berbahaya</strong> — seperti menjinakkan bom atau menjelajah gunung berapi.</li>
+                <li><strong>Berulang-ulang</strong> — seperti memasang sekrup di pabrik sepanjang hari.</li>
+                <li><strong>Membutuhkan presisi tinggi</strong> — seperti operasi bedah mikro atau merakit chip komputer.</li>
+            </ul>
+            <div class="tips-box">
+                <i class="bi bi-question-circle"></i> <strong>Pikirkan:</strong> Pekerjaan apa di sekitarmu yang menurutmu cocok digantikan robot? Mengapa?
+            </div>
+
+            <h2 id="bab1-iot" class="section-title">🌐 Apa Itu IOT (Internet of Things)?</h2>
+            <p><strong>IOT</strong> adalah singkatan dari <strong>Internet of Things</strong> — atau dalam bahasa Indonesia: <em>"Internet untuk Segala Benda"</em>.</p>
+            <p>IOT adalah sistem yang memungkinkan benda-benda di sekitar kita (seperti sensor, lampu, kulkas) <strong>terhubung ke internet</strong> dan saling bertukar data tanpa campur tangan manusia.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-cloud-upload"></i> <strong>Contoh IOT di Indonesia:</strong> <strong>Weather Station</strong> (Stasiun Cuaca) adalah perangkat yang mengukur suhu, kelembaban, curah hujan, tekanan udara, dan arah angin — lalu mengirimkan data itu ke internet. Kamu bisa melihat cuaca di daerahmu dari HP tanpa perlu ke luar rumah!
+            </div>
+
+            <p><strong>Perbedaan Robotika dan IOT:</strong></p>
+            <ul>
+                <li><strong>Robotika</strong> lebih menekankan pada <strong>benda fisik</strong> (robot yang bergerak).</li>
+                <li><strong>IOT</strong> lebih menekankan pada <strong>data</strong> yang dikirim jarak jauh.</li>
+            </ul>
+            <div class="highlight-box p-3 bg-primary bg-opacity-10 rounded-3 border border-primary">
+                <strong>Di dalam Robotika dan IOT, ada 3 aspek utama:</strong>
+                <span class="badge bg-primary">Mekanikal</span>
+                <span class="badge bg-warning text-dark">Elektronika</span>
+                <span class="badge bg-success">Firmware (Pemrograman)</span>
+                <p class="mt-2 mb-0 small">Ketiganya akan kita pelajari secara mendalam!</p>
+            </div>
+
+            <hr class="my-5" />
+
+            <!-- ========== BAB I - A ========== -->
+            <h2 id="bab1a" class="section-title">A. Mekanikal — "Tulang dan Otot" Robot</h2>
+
+            <p><strong>Mekanikal</strong> adalah semua aspek <strong>fisik</strong> pada robot: gerak, struktur, keseimbangan, dan komponen-komponen mekanis.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-person-walking"></i> <strong>Analogi:</strong> Kalau robot adalah manusia, maka <strong>mekanikal</strong> adalah <strong>tulang dan otot</strong>-nya. Tanpa mekanikal, robot hanya sekumpulan kabel dan chip yang tidak bergerak.
+            </div>
+
+            <h4 class="sub-section">🔩 Tiga Komponen Utama Sistem Mekanikal</h4>
+            <ol>
+                <li><strong>Joint (Sendi)</strong> — titik sambung yang memungkinkan gerakan antar bagian robot. Contoh: siku pada lengan robot.</li>
+                <li><strong>Link (Penghubung)</strong> — bagian keras yang menghubungkan satu joint dengan joint lainnya. Contoh: tulang lengan atas.</li>
+                <li><strong>End-Effector</strong> — bagian ujung robot yang berinteraksi langsung dengan objek kerja. Contoh: <em>gripper</em> (penjepit), <em>spray gun</em> (penyemprot cat), atau alat las.</li>
+            </ol>
+
+            <h4 class="sub-section">🏗️ Struktur Berdasarkan Jenis Robot</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Robot Manipulator (Lengan)</h5>
+                            <ul class="small">
+                                <li><strong>Base</strong> — dasar/tumpuan, bisa berputar horizontal.</li>
+                                <li><strong>Shoulder (Bahu)</strong> — sendi untuk mengangkat lengan.</li>
+                                <li><strong>Elbow (Siku)</strong> — sendi untuk menekuk lengan.</li>
+                                <li><strong>Wrist (Pergelangan)</strong> — sendi untuk orientasi end-effector.</li>
+                                <li><strong>End-Effector</strong> — alat di ujung lengan.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Robot Mobile (Bergerak)</h5>
+                            <ul class="small">
+                                <li><strong>Chassis (Rangka)</strong> — kerangka dasar tempat semua komponen dipasang.</li>
+                                <li><strong>Sistem Penggerak</strong> — roda, track (ulat), atau kaki.</li>
+                                <li><strong>Suspensi</strong> — sistem peredam getaran untuk kestabilan.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="sub-section">📐 Arsitektur Robot</h4>
+            <ul>
+                <li><strong>Serial Robot:</strong> link-link tersusun secara <strong>seri</strong> dari base ke end-effector (seperti lengan manusia).</li>
+                <li><strong>Parallel Robot:</strong> beberapa link <strong>paralel</strong> menghubungkan base dengan end-effector (lebih stabil, seperti meja angkat).</li>
+            </ul>
+
+            <h4 class="sub-section">⚡ Komponen Mekanikal Utama</h4>
+            <ul>
+                <li><strong>Aktuator (Penggerak):</strong> "otot" robot. Mengubah energi (listrik, angin, atau tekanan cairan) menjadi gerakan.</li>
+                <li><strong>Motor Servo:</strong> presisi tinggi, bisa dikontrol posisinya (misal 0°–180°). Contoh: <em>Micro Servo SG90</em> untuk robot mini.</li>
+                <li><strong>Motor DC:</strong> motor umum yang bisa berputar dua arah (CW/CCW).</li>
+                <li><strong>Linear Aktuator:</strong> mengubah putaran menjadi gerakan lurus (seperti dorongan).</li>
+                <li><strong>Sistem Transmisi:</strong> menyalurkan daya dari motor ke bagian yang digerakkan. Jenis: <em>Gear</em> (roda gigi), <em>Belt</em> (sabuk), <em>Chain</em> (rantai), <em>Tendon</em> (kabel), <em>Direct Drive</em> (langsung).</li>
+                <li><strong>Reduksi Gear:</strong> memperlambat putaran motor tapi <strong>menambah tenaga</strong> (torsi). Contoh: gearbox 4:1 pada gripper robot.</li>
+            </ul>
+
+            <h4 class="sub-section">📊 Prinsip Mekanika dalam Robotika</h4>
+            <ul>
+                <li><strong>Kinematika:</strong> mempelajari gerakan <em>tanpa</em> mempedulikan gaya. Ada <strong>Kinematika Maju</strong> (menentukan posisi dari sudut joint) dan <strong>Kinematika Balik</strong> (menentukan sudut joint dari posisi yang diinginkan).</li>
+                <li><strong>Statika:</strong> mempelajari keseimbangan gaya saat robot diam atau bergerak konstan.</li>
+                <li><strong>Dinamika:</strong> mempelajari gerakan dengan memperhatikan gaya, percepatan, inersia, dan gravitasi.</li>
+                <li><strong>Perencanaan Trajektori:</strong> menentukan jalur gerak robot dari titik A ke B dengan batasan kecepatan dan percepatan.</li>
+            </ul>
+
+            <h4 class="sub-section">⚖️ Keseimbangan dan Stabilitas</h4>
+            <ul>
+                <li><strong>Keseimbangan Statis:</strong> pusat massa robot tetap di posisinya saat bergerak.</li>
+                <li><strong>Kompensasi Gravitasi:</strong> menggunakan pegas atau pemberat untuk menyeimbangkan beban gravitasi pada lengan robot.</li>
+                <li><strong>Keseimbangan Dinamis:</strong> penting untuk robot berjalan (kaki), agar tidak jatuh saat melangkah.</li>
+            </ul>
+
+            <h4 class="sub-section">🧱 Material dan Manufaktur</h4>
+            <p><strong>Material yang umum digunakan:</strong> Aluminium (ringan & kuat), Baja (kuat & tahan lama), Plastik ABS/Nylon, Komposit serat karbon, dan material cetak 3D (PLA, PETG, ABS).</p>
+            <p><strong>Metode manufaktur:</strong> CNC Machining (presisi tinggi), 3D Printing (prototipe), Injection Molding (produksi massal), Sheet Metal Fabrication (rangka).</p>
+
+            <h4 class="sub-section">🛠️ Desain Mekanikal Robot</h4>
+            <p><strong>Proses desain:</strong> Identifikasi kebutuhan → Konseptualisasi → Analisis → Detail desain → Prototyping → Iterasi (perbaikan).</p>
+            <p><strong>Software desain:</strong> Creo Parametric, SolidWorks, AutoCAD, Fusion 360.</p>
+            <p><strong>Pertimbangan desain:</strong> Range of Motion (rentang gerak), Payload (beban angkat), Repeatability (ketepatan ulang), Kecepatan, Keandalan, dan Keamanan.</p>
+
+            <h4 class="sub-section">📌 Aplikasi Mekanikal pada Jenis Robot</h4>
+            <ul>
+                <li><strong>Robot Industri (Manipulator):</strong> 6-DOF, angkat beban berat, presisi tinggi.</li>
+                <li><strong>Robot Mobile:</strong> Roda Mecanum (gerak omnidirectional), Track (medan berat), Kaki (adaptasi medan ekstrem).</li>
+                <li><strong>Robot Humanoid:</strong> meniru tubuh manusia dengan sendi kompleks dan sistem keseimbangan canggih.</li>
+                <li><strong>Drone:</strong> rangka ringan, baling-baling, dan mekanisme kontrol sikap.</li>
+            </ul>
+
+            <h4 class="sub-section">🧹 Perawatan Mekanikal</h4>
+            <ol>
+                <li>Pelumasan pada gear, bearing, dan komponen bergerak.</li>
+                <li>Pembersihan dari debu dan kontaminan.</li>
+                <li>Inspeksi keausan dan kerusakan.</li>
+                <li>Kalibrasi presisi gerakan.</li>
+                <li>Penggantian komponen aus (belt, gear, bearing).</li>
+            </ol>
+
+            <hr class="my-5" />
+
+            <!-- ========== BAB I - B ========== -->
+            <h2 id="bab1b" class="section-title">B. Elektronika — "Sistem Saraf" Robot</h2>
+
+            <p><strong>Elektronika</strong> adalah ilmu yang mempelajari tentang <strong>listrik DC (arus searah)</strong>, yang memiliki kutub positif (+) dan negatif (-). Robotika sangat bergantung pada elektronika karena semua sensor, motor, dan mikrokontroler bekerja dengan listrik.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-nervous"></i> <strong>Analogi:</strong> Jika mekanikal adalah tulang dan otot, maka <strong>elektronika</strong> adalah <strong>sistem saraf</strong> yang mengalirkan sinyal dari otak ke seluruh tubuh.
+            </div>
+
+            <h4 class="sub-section">📊 Analog vs Digital</h4>
+            <ul>
+                <li><strong>Analog:</strong> nilai yang <strong>kontinu</strong> (berkelanjutan) antara dua titik. Contoh: volume radio yang bisa diputar halus. Dalam elektronika, rentang nilai analog biasanya 0–225 (atau 0–1023 pada ADC 10-bit).</li>
+                <li><strong>Digital:</strong> hanya memiliki <strong>dua nilai</strong>: 0 (mati/LOW) atau 1 (hidup/HIGH). Seperti saklar lampu — hanya on atau off.</li>
+            </ul>
+
+            <h4 class="sub-section">⚡ Tiga Besaran Fundamental Listrik</h4>
+            <table class="table table-bordered table-hover">
+                <thead class="table-primary">
+                    <tr><th>Besaran</th><th>Satuan</th><th>Analogi Air</th><th>Contoh</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Tegangan (V)</strong></td><td>Volt (V)</td><td>Tekanan air / ketinggian</td><td>Baterai 9V, adaptor 5V</td></tr>
+                    <tr><td><strong>Arus (I)</strong></td><td>Ampere (A)</td><td>Debit air / jumlah aliran</td><td>Motor 2A, LED 20mA</td></tr>
+                    <tr><td><strong>Hambatan (R)</strong></td><td>Ohm (Ω)</td><td>Penyempitan pipa / gesekan</td><td>Resistor 220Ω</td></tr>
+                </tbody>
+            </table>
+
+            <h4 class="sub-section">📐 Hukum Ohm (Rumus Dasar)</h4>
+            <p><strong>V = I × R</strong> — Tegangan = Arus × Hambatan.</p>
+            <p><strong>Contoh di Robotika:</strong> Motor DC memiliki hambatan 2Ω dan diberi tegangan 12V. Maka arus yang mengalir adalah <strong>I = 12V / 2Ω = 6 Ampere</strong>. Ini penting untuk memilih driver motor yang kuat agar tidak overheat.</p>
+
+            <h4 class="sub-section">⚡ Hukum Daya (Power Law)</h4>
+            <p><strong>P = V × I</strong> — Daya (Watt) = Tegangan × Arus.</p>
+            <p><strong>Contoh:</strong> Motor menarik 2A pada 12V → daya = 24 Watt. Ini membantu kita memilih baterai yang cukup besar.</p>
+
+            <h4 class="sub-section">🔌 Rangkaian Penting dalam Robotika</h4>
+            <ol>
+                <li><strong>Pembagi Tegangan (Voltage Divider):</strong> Dua resistor seri untuk menurunkan tegangan. Rumus: <em>V_out = V_in × (R2 / (R1 + R2))</em>. Berguna untuk membaca sensor resistif (misal LDR).</li>
+                <li><strong>Filter Kapasitor (Decoupling):</strong> Kapasitor 0.1µF dipasang dekat pin VCC-GND IC untuk menyaring noise listrik dan mencegah reset mendadak.</li>
+                <li><strong>Rangkaian H-Bridge:</strong> 4 transistor untuk mengontrol arah motor DC (maju, mundur, berhenti). IC populer: L298N dan L293D.</li>
+            </ol>
+
+            <hr class="my-5" />
+
+            <!-- ========== BAB I - C ========== -->
+            <h2 id="bab1c" class="section-title">C. Pemrograman — "Otak dan Jiwa" Robot</h2>
+
+            <p><strong>Pemrograman</strong> adalah proses menulis, menguji, memperbaiki (<em>debugging</em>), dan memelihara kode. Fungsi pemrograman dalam robotika adalah memberi <strong>instruksi logis</strong> ke mikrokontroler agar komponen elektronika bekerja sesuai harapan.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-brain"></i> <strong>Analogi:</strong> Jika mekanikal adalah tulang dan elektronika adalah saraf, maka <strong>pemrograman adalah otak</strong> — tanpa program, robot hanya "mayat" berlistrik.
+            </div>
+
+            <p><strong>Proses Kerja Program:</strong></p>
+            <ol>
+                <li><strong>Menulis kode</strong> (C/C++ di Arduino IDE).</li>
+                <li><strong>Kompilasi</strong> — kode diubah menjadi <strong>bilangan biner</strong> (0 dan 1) yang dimengerti mikrokontroler.</li>
+                <li><strong>Upload</strong> — kode biner dikirim ke memori Flash mikrokontroler via USB.</li>
+                <li><strong>Eksekusi</strong> — mikrokontroler membaca instruksi dan mengirim sinyal ke motor/LED/sensor.</li>
+            </ol>
+
+            <h4 class="sub-section">🧩 6 Pilar Dasar Pemrograman Robotika</h4>
+            <ol>
+                <li><strong>Logika &amp; Algoritma:</strong> Urutan langkah logis untuk menyelesaikan masalah. Contoh: <em>"Jika jarak sensor &lt; 10 cm, motor mundur; jika tidak, motor maju."</em></li>
+                <li><strong>Struktur Bahasa (Syntax):</strong> Variabel, tipe data (int, float, char, boolean), konstanta, dan operator (+, -, *, /, ==, &lt;, &gt;).</li>
+                <li><strong>Kontrol Alur:</strong> Percabangan (<em>if/else</em>) dan perulangan (<em>for/while</em>).</li>
+                <li><strong>Fungsi &amp; Modularisasi:</strong> <code>setup()</code> (sekali) dan <code>loop()</code> (terus menerus) pada Arduino.</li>
+                <li><strong>Interaksi Hardware:</strong> Digital I/O (HIGH/LOW), Analog I/O (ADC), PWM, dan Serial.</li>
+                <li><strong>Komunikasi Protokol:</strong> UART, I2C, dan SPI untuk menghubungkan banyak perangkat.</li>
+            </ol>
+
+            <h4 class="sub-section">🐍 Bahasa Pemrograman yang Umum</h4>
+            <ul>
+                <li><strong>C / C++:</strong> utama untuk Arduino, ESP32, STM32.</li>
+                <li><strong>Python:</strong> untuk robotika tingkat tinggi (AI, Computer Vision).</li>
+                <li><strong>MicroPython:</strong> versi ringan Python untuk ESP8266/ESP32.</li>
+                <li><strong>Blockly / Scratch:</strong> visual programming untuk pemula.</li>
+            </ul>
+
+            <h4 class="sub-section">🐛 Debugging (Mencari Kesalahan)</h4>
+            <ul>
+                <li><strong>Serial Monitor:</strong> melihat data real-time dari robot ke komputer.</li>
+                <li><strong>LED Indikator:</strong> menandakan bagian kode yang berhasil dijalankan.</li>
+                <li><strong>Hardware Debugger:</strong> menjalankan kode step-by-step.</li>
+            </ul>
+
+            <!-- ============================================================ -->
+            <!-- BAB II -->
+            <!-- ============================================================ -->
+            <h1 id="bab2" class="chapter-title"><span class="badge-chapter badge-bab2">BAB II</span> Dasar Elektronika</h1>
+
+            <p><strong>Elektronika dasar</strong> adalah cabang ilmu yang mempelajari komponen dan prinsip kerja rangkaian elektronika, dari komponen pasif hingga aktif. Konsep dasarnya: arus listrik, tegangan, hambatan, resistor, transistor, kapasitor, dan dioda.</p>
+
+            <h2 id="bab2a" class="section-title">1. Arus Listrik dan Tegangan</h2>
+
+            <p><strong>Arus dan tegangan</strong> adalah dua sisi mata uang dalam elektronika. Tanpa tegangan, arus tidak mengalir. Tanpa arus, tegangan hanya potensi diam.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-water"></i> <strong>Analogi Air:</strong>
+                <ul class="mb-0">
+                    <li><strong>Tegangan (Volt)</strong> = <strong>tekanan air</strong> / ketinggian. Semakin tinggi tekanan, semakin deras dorongan.</li>
+                    <li><strong>Arus (Ampere)</strong> = <strong>debit air</strong> (liter per detik). Semakin besar arus, semakin banyak elektron mengalir.</li>
+                    <li><strong>Hambatan (Ohm)</strong> = <strong>penyempitan pipa</strong> / gesekan.</li>
+                </ul>
+            </div>
+
+            <p><strong>DC vs AC:</strong></p>
+            <ul>
+                <li><strong>DC (Direct Current / Arus Searah):</strong> mengalir satu arah, konstan. Sumber: baterai, adaptor. Ini yang digunakan di semua robot!</li>
+                <li><strong>AC (Alternating Current / Arus Bolak-balik):</strong> arus membalik arah secara periodik (50 Hz di Indonesia). Sumber: listrik PLN. Harus diubah ke DC untuk robot.</li>
+            </ul>
+
+            <div class="danger-box">
+                <i class="bi bi-exclamation-triangle-fill"></i> <strong>⚠️ Hal yang Harus Diperhatikan:</strong>
+                <ul class="mb-0">
+                    <li><strong>Polaritas Terbalik:</strong> Periksa (+) dan (-) sebelum colok! IC bisa rusak permanen jika terbalik.</li>
+                    <li><strong>Korsleting (Short Circuit):</strong> Jangan biarkan kabel (+) menyentuh (-) langsung — bisa panas, meleleh, atau terbakar!</li>
+                    <li><strong>Arus Berlebih:</strong> Pastikan baterai/adaptor cukup kuat. Jika motor butuh 2A tapi adaptor cuma 1A, robot bisa mati mendadak (<em>brownout</em>).</li>
+                </ul>
+            </div>
+
+            <!-- GAMBAR 6: HUKUM OHM -->
+            <div class="text-center my-4">
+                <img loading="lazy" src="assets/img/gambar-06.jpg" class="img-fluid rounded shadow" alt="Ilustrasi Hukum Ohm" style="max-height: 300px; cursor: pointer;">
+                <p class="text-muted small mt-2"><em>Ilustrasi hubungan antara Volt, Ampere, dan Ohm.</em></p>
+            </div>
+
+            <h2 id="bab2b" class="section-title">2. Power Supply (Catu Daya)</h2>
+
+            <p><strong>Catu daya</strong> adalah rangkaian yang mengubah <strong>AC (dari stopkontak) menjadi DC</strong> yang dibutuhkan robot.</p>
+
+            <h4 class="sub-section">🔌 Komponen Utama: Transformator (Trafo)</h4>
+            <ul>
+                <li><strong>Berdasarkan bentuk:</strong> Kotak (model lama, berat, berisik) dan Toroidal (berbentuk donat, ringan, efisien).</li>
+                <li><strong>Berdasarkan kutub:</strong> <strong>Non-CT</strong> (2 kabel: positif & negatif) dan <strong>CT (Center Tap)</strong> (3 kabel: +V, 0, -V) untuk tegangan simetris.</li>
+                <li><strong>Berdasarkan cara kerja:</strong> <strong>Step-Down</strong> (menurunkan tegangan, misal 220V → 12V) — ini yang paling umum! Dan <strong>Step-Up</strong> (menaikkan tegangan).</li>
+            </ul>
+            <p>Trafo bekerja dengan <strong>lilitan kawat</strong> — lilitan <strong>primary</strong> (input) dan <strong>secondary</strong> (output). Perbandingan lilitan menentukan step-up atau step-down.</p>
+
+            <!-- GAMBAR 1 & 12: PENYEARAH DAN TRAFO -->
+            <div class="text-center my-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img loading="lazy" src="assets/img/gambar-01.png" class="img-fluid rounded shadow mb-2" alt="Penyearah AC ke DC" style="cursor: pointer;">
+                        <p class="text-muted small">Penyearah AC ke DC menggunakan Dioda Bridge.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img loading="lazy" src="assets/img/gambar-12.jpg" class="img-fluid rounded shadow mb-2" alt="Transformator / Trafo" style="cursor: pointer;">
+                        <p class="text-muted small">Berbagai jenis Transformator.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="bab2c" class="section-title">3. Rectifier (Dioda)</h2>
+
+            <p><strong>Dioda</strong> adalah komponen yang berfungsi sebagai <strong>penyearah arus AC menjadi DC</strong>. Dioda hanya mengalirkan arus <strong>satu arah</strong>: dari <strong>Anoda (+)</strong> ke <strong>Katoda (-)</strong>.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-valve"></i> <strong>Analogi:</strong> Dioda seperti <strong>katup satu arah</strong> pada pompa sepeda — udara masuk, tapi tidak bisa keluar kembali.
+            </div>
+
+            <p><strong>Penurunan Tegangan (Voltage Drop):</strong> Saat arus melewati dioda, terjadi penurunan tegangan sekitar <strong>0.6–0.7V</strong> (untuk dioda silikon).</p>
+            <p><strong>Fungsi penting di robotika:</strong> <strong>Flyback Diode</strong> — dipasang paralel terbalik pada motor/relay untuk melindungi dari lonjakan tegangan balik (back EMF) yang bisa merusak komponen.</p>
+
+            <!-- GAMBAR 2: JENIS DIODA -->
+            <div class="text-center my-4">
+                <img loading="lazy" src="assets/img/gambar-02.jpg" class="img-fluid rounded shadow" alt="Jenis-jenis Dioda" style="max-height: 350px; cursor: pointer;">
+                <p class="text-muted small mt-2"><em>Jenis-jenis Dioda (Normal, Bridge, Zener, LED, Foto, dll).</em></p>
+            </div>
+
+            <h2 id="bab2d" class="section-title">4. Kapasitor</h2>
+
+            <p><strong>Kapasitor</strong> berfungsi sebagai <strong>penyimpan muatan listrik sementara</strong> dan <strong>filter sinyal</strong>.</p>
+
+            <ul>
+                <li><strong>Kapasitor Polar (Elektrolit):</strong> memiliki (+) dan (-). Jika terbalik, bisa meledak! Kapasitansi besar (1µF – 10.000µF).</li>
+                <li><strong>Kapasitor Non-Polar (Keramik):</strong> tidak punya polaritas, bisa dipasang bolak-balik. Kapasitansi kecil (1pF – 10µF).</li>
+            </ul>
+
+            <div class="tips-box">
+                <i class="bi bi-ruler"></i> <strong>Aturan Tegangan Kapasitor:</strong> Gunakan tegangan kapasitor <strong>1.5–2 kali</strong> tegangan kerja. Contoh: untuk 12V, pakai kapasitor <strong>16V (minimum)</strong> atau lebih aman <strong>25V</strong>.
+            </div>
+
+            <p><strong>Fungsi kapasitor di robotika:</strong></p>
+            <ul>
+                <li><strong>Filter/Smoothing:</strong> meratakan tegangan DC hasil penyearah (misal 2200µF).</li>
+                <li><strong>Decoupling/Bypass:</strong> menyaring noise frekuensi tinggi — kapasitor 0.1µF di dekat IC.</li>
+                <li><strong>Snubber:</strong> meredam lonjakan pada motor.</li>
+                <li><strong>Timer:</strong> rangkaian waktu dengan resistor (RC).</li>
+            </ul>
+
+            <!-- GAMBAR 4: JENIS KAPASITOR -->
+            <div class="text-center my-4">
+                <img loading="lazy" src="assets/img/gambar-04.jpg" class="img-fluid rounded shadow" alt="Jenis-jenis Kapasitor" style="max-height: 350px; cursor: pointer;">
+                <p class="text-muted small mt-2"><em>Macam-macam Kapasitor (Keramik, Polyester, Elektrolit, dll).</em></p>
+            </div>
+
+            <h2 id="bab2e" class="section-title">5. Resistor</h2>
+
+            <p><strong>Resistor</strong> adalah komponen untuk <strong>menghambat, membatasi, atau mengatur arus listrik</strong>. Sifatnya <strong>non-polar</strong> — bisa dipasang bolak-balik. Satuan: <strong>Ohm (Ω)</strong>.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-pipe"></i> <strong>Analogi:</strong> Resistor seperti <strong>penyempitan pipa</strong> — mengurangi debit air (arus) dan menurunkan tekanan (tegangan).
+            </div>
+
+            <h4 class="sub-section">🎨 Kode Warna Resistor</h4>
+            <!-- GAMBAR 11: KODE WARNA -->
+            <div class="text-center my-4">
+                <img loading="lazy" src="assets/img/gambar-11.jpg" class="img-fluid rounded shadow" alt="Kode Warna Resistor" style="max-height: 400px; cursor: pointer;">
+                <p class="text-muted small mt-2"><em>Tabel panduan membaca gelang warna resistor 4, 5, dan 6 gelang.</em></p>
+            </div>
+
+            <h4 class="sub-section">📟 Resistor SMD (3 Digit)</h4>
+            <ul>
+                <li><code>101</code> = 10 × 10¹ = 100Ω</li>
+                <li><code>203</code> = 20 × 10³ = 20.000Ω = 20kΩ</li>
+                <li><code>472</code> = 47 × 10² = 4.700Ω = 4.7kΩ</li>
+                <li><code>4R7</code> = 4.7Ω (R = desimal)</li>
+            </ul>
+
+            <h4 class="sub-section">📟 Resistor SMD (4 Digit)</h4>
+            <p>Pada sistem pengkodean 4 digit, aturannya sedikit berbeda. Tiga digit pertama menunjukkan <strong>nilai resistansi</strong>, sedangkan digit keempat (terakhir) adalah <strong>faktor pengali</strong> (10 pangkat digit keempat).</p>
+            <ul>
+                <li><code>1002</code> = 100 × 10² = 10.000Ω = <strong>10kΩ</strong></li>
+                <li><code>4701</code> = 470 × 10¹ = 4.700Ω = <strong>4.7kΩ</strong></li>
+                <li><code>4753</code> = 475 × 10³ = 475.000Ω = <strong>475kΩ</strong></li>
+                <li><code>4R70</code> = 4.70Ω (Tanda "R" berfungsi sebagai koma desimal pada resistor SMD 4 digit)</li>
+                <li><code>R047</code> = 0.047Ω</li>
+            </ul>
+
+            <!-- GAMBAR 7, 8, 9, 10: RESISTOR SMD, DAYA, SIMBOL -->
+            <div class="text-center my-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img loading="lazy" src="assets/img/gambar-07.png" class="img-fluid rounded shadow mb-2" alt="Kode Resistor SMD" style="cursor: pointer;">
+                        <p class="text-muted small">Cara membaca kode resistor SMD 3 dan 4 digit.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img loading="lazy" src="assets/img/gambar-08.jpg" class="img-fluid rounded shadow mb-2" alt="Resistor SMD di PCB" style="cursor: pointer;">
+                        <p class="text-muted small">Contoh fisik Resistor SMD.</p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <img loading="lazy" src="assets/img/gambar-09.png" class="img-fluid rounded shadow mb-2" alt="Resistor Daya (Watt)" style="cursor: pointer;">
+                        <p class="text-muted small">Resistor berdasarkan kemampuan daya (Watt).</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img loading="lazy" src="assets/img/gambar-10.png" class="img-fluid rounded shadow mb-2" alt="Simbol Resistor" style="cursor: pointer;">
+                        <p class="text-muted small">Simbol resistor tetap, LDR, Termistor (PTC/NTC), dan Variabel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="bab2f" class="section-title">6. Transistor</h2>
+
+            <p><strong>Transistor</strong> adalah komponen semikonduktor yang berfungsi sebagai <strong>penguat sinyal</strong> atau <strong>sakelar digital</strong>. Memiliki 3 pin: <strong>Basis (B)</strong>, <strong>Kolektor (C)</strong>, <strong>Emitor (E)</strong>.</p>
+
+            <ul>
+                <li><strong>NPN:</strong> Arus mengalir dari Kolektor ke Emitor jika Basis diberi tegangan positif (>0.7V).</li>
+                <li><strong>PNP:</strong> Arus mengalir dari Emitor ke Kolektor jika Basis diberi tegangan negatif.</li>
+            </ul>
+
+            <div class="tips-box">
+                <i class="bi bi-arrow-right-circle"></i> <strong>Kegunaan di Robot:</strong> Transistor bertindak sebagai <strong>saklar</strong> — sinyal kecil dari mikrokontroler (5V, 20mA) digunakan untuk mengalirkan arus besar (500mA) ke motor atau relay.
+            </div>
+
+            <!-- GAMBAR 13 & 14: TRANSISTOR -->
+            <div class="text-center my-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img loading="lazy" src="assets/img/gambar-13.png" class="img-fluid rounded shadow mb-2" alt="Jenis-jenis Transistor" style="cursor: pointer;">
+                        <p class="text-muted small">Simbol dan jenis transistor NPN, PNP, Darlington, JFET, dan MOSFET.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img loading="lazy" src="assets/img/gambar-14.png" class="img-fluid rounded shadow mb-2" alt="Pinout Transistor NPN" style="cursor: pointer;">
+                        <p class="text-muted small">Struktur pin transistor NPN (Base, Collector, Emitter).</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="bab2g" class="section-title">7. IC (Integrated Circuit) &amp; Mikrokontroler</h2>
+
+            <p><strong>IC (Integrated Circuit)</strong> adalah chip yang berisi ribuan hingga jutaan komponen (transistor, resistor, kapasitor) dalam satu kemasan kecil. Contoh: mikrokontroler, op-amp, regulator.</p>
+
+            <h4 class="sub-section">🧠 Mikrokontroler</h4>
+            <p><strong>Mikrokontroler</strong> adalah <strong>komputer kecil</strong> dalam satu chip yang bisa diprogram untuk mengontrol tugas-tugas tertentu. Perbedaan dengan IC biasa: mikrokontroler <strong>bisa diprogram</strong>!</p>
+
+            <!-- GAMBAR 3 & 5: IC DAN MIKROKONTROLER -->
+            <div class="text-center my-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img loading="lazy" src="assets/img/gambar-03.jpg" class="img-fluid rounded shadow mb-2" alt="Integrated Circuit (IC)" style="cursor: pointer;">
+                        <p class="text-muted small">Komponen IC / Chip.</p>
+                    </div>
+                    <div class="col-md-8">
+                        <img loading="lazy" src="assets/img/gambar-05.jpg" class="img-fluid rounded shadow mb-2" alt="Mikrokontroler ESP32, Arduino" style="cursor: pointer;">
+                        <p class="text-muted small">Mikrokontroler (ESP32, Arduino Uno, Arduino Mega).</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="sub-section">📊 Perbandingan Arduino Uno, ESP8266, ESP32</h4>
+            <div class="table-wrapper">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-primary">
+                        <tr><th>Fitur</th><th>Arduino Uno</th><th>ESP8266</th><th>ESP32</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>CPU</td><td>ATMega328</td><td>Single-core Xtensa LX106</td><td>Dual-core Xtensa LX6</td></tr>
+                        <tr><td>Clock Speed</td><td>16 MHz</td><td>80/160 MHz</td><td>160/240 MHz</td></tr>
+                        <tr><td>Wi-Fi</td><td>❌</td><td>✅ 802.11 b/g/n</td><td>✅ 802.11 b/g/n</td></tr>
+                        <tr><td>Bluetooth</td><td>❌</td><td>❌</td><td>✅ 4.2 &amp; BLE</td></tr>
+                        <tr><td>GPIO</td><td>14</td><td>17</td><td>36</td></tr>
+                        <tr><td>Analog Pin</td><td>6 (10-bit)</td><td>1 (10-bit)</td><td>18 (12-bit)</td></tr>
+                        <tr><td>Tegangan</td><td>5V</td><td>3.3V</td><td>3.3V</td></tr>
+                        <tr><td>RAM</td><td>2 KB</td><td>160 KB</td><td>520 KB</td></tr>
+                        <tr><td>Flash</td><td>32 KB</td><td>4 MB</td><td>4–16 MB</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ========== BAB II - 8. MOTOR & DRIVER ========== -->
+            <h2 id="bab2h" class="section-title">8. Motor dan Penggerak (Actuator) Dasar</h2>
+            
+            <p>Dalam robotika, <strong>motor</strong> adalah komponen yang mengubah <strong>energi listrik menjadi energi gerak</strong> (mekanik). Mereka adalah "otot" dari robot. Ada tiga jenis motor yang sangat umum digunakan dalam proyek robotika: <strong>Motor DC, Motor Servo, dan Motor Stepper</strong>. Untuk mengendalikannya dari mikrokontroler, kita membutuhkan <strong>Driver Motor</strong>.</p>
+
+            <h4 class="sub-section">⚙️ A. Motor DC (Untuk Roda Robot)</h4>
+            <p><strong>Motor DC</strong> adalah jenis motor yang paling sederhana. Ketika dialiri tegangan DC (arus searah), poros motor akan berputar. Semakin besar tegangan yang diberikan, semakin cepat putarannya.</p>
+            
+            <div class="analogi-box">
+                <i class="bi bi-recycle"></i> <strong>Analogi:</strong> Motor DC seperti <strong>kincir air</strong>. Semakin deras air (tegangan) yang mengalir, semakin cepat kincir (motor) berputar. Putarannya kontinu selama ada listrik.
+            </div>
+
+            <ul>
+                <li><strong>Menggerakkan Roda:</strong> Motor DC adalah pilihan utama untuk robot mobile beroda. Dengan memasangkan roda pada porosnya, robot bisa bergerak maju atau mundur.</li>
+                <li><strong>Mengontrol Kecepatan:</strong> Kecepatan motor DC diatur menggunakan <strong>PWM (Pulse Width Modulation)</strong> dari mikrokontroler.</li>
+                <li><strong>Mengontrol Arah:</strong> Arah putaran diubah dengan <strong>membalik polaritas tegangan</strong> (+ dan - ditukar). Inilah kenapa kita butuh driver.</li>
+            </ul>
+
+            <h4 class="sub-section">🎯 B. Motor Servo (Untuk Posisi Presisi)</h4>
+            <p><strong>Motor Servo</strong> adalah motor yang dilengkapi dengan sistem <em>feedback</em> (umpan balik) internal. Ia tidak berputar terus-menerus seperti motor DC, melainkan berputar tepat ke <strong>sudut tertentu</strong> dan bertahan di posisi itu.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-geo-alt-fill"></i> <strong>Analogi:</strong> Motor Servo seperti <strong>tuas persneling</strong> atau <strong>lengan robot</strong>. Kamu bisa memerintahkannya: "Pindah ke posisi 90 derajat!", dan dia akan bergerak tepat ke 90 derajat dan diam di sana.
+            </div>
+
+            <ul>
+                <li><strong>Rentang Sudut:</strong> Motor servo standar (seperti SG90 atau MG995) memiliki rentang gerak dari <strong>0° hingga 180°</strong>.</li>
+                <li><strong>Aplikasi:</strong> Sangat cocok untuk membuat <strong>lengan robot</strong>, <strong>kemudi mobil remote</strong>, atau membuka/menutup <strong>gripper</strong> (penjepit).</li>
+                <li><strong>Kontrol:</strong> Dikendalikan menggunakan sinyal PWM dengan <strong>lebar pulsa</strong> yang berbeda (misal, 1ms = 0°, 1.5ms = 90°, 2ms = 180°).</li>
+            </ul>
+
+            <div class="tips-box">
+                <i class="bi bi-magic"></i> <strong>Tips:</strong> Kabel motor servo biasanya terdiri dari 3 warna: <strong>Merah</strong> (VCC/5V), <strong>Hitam/Coklat</strong> (GND), dan <strong>Kuning/Oranye</strong> (Sinyal PWM).
+            </div>
+
+            <h4 class="sub-section">👣 C. Motor Stepper (Untuk Rotasi Bertahap)</h4>
+            <p><strong>Motor Stepper</strong> adalah motor yang berputar dalam <strong>langkah-langkah diskrit</strong> (step). Setiap kali kumparan di dalamnya diberi listrik secara berurutan, poros motor akan maju satu langkah.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-arrow-repeat"></i> <strong>Analogi:</strong> Motor Stepper seperti <strong>roda dengan gigi (ratchet)</strong>. Setiap kali kamu menarik tuas, roda berputar tepat satu gigi. Kamu bisa menghitung tepat berapa derajat rotasinya dari jumlah langkah.
+            </div>
+
+            <ul>
+                <li><strong>Presisi Langkah:</strong> Akurasi sangat tinggi. Motor stepper standar biasanya memiliki <strong>200 langkah per putaran penuh</strong> (1,8° per langkah).</li>
+                <li><strong>Aplikasi:</strong> Digunakan untuk robot yang membutuhkan presisi tinggi seperti <strong>mesin CNC</strong>, <strong>printer 3D</strong>, dan robot penari.</li>
+                <li><strong>Kelemahan:</strong> Konsumsi daya lebih tinggi dan biasanya berisik dibandingkan motor DC.</li>
+            </ul>
+
+            <h4 class="sub-section">🔌 D. Driver Motor (Modul L298N dan lainnya)</h4>
+            <p><strong>Driver motor</strong> adalah modul elektronik yang berfungsi sebagai <strong>jembatan antara mikrokontroler dan motor</strong>. Mengapa butuh driver? Karena mikrokontroler hanya bisa mengeluarkan arus kecil (sekitar 20mA - 40mA), sedangkan motor membutuhkan arus besar (bisa mencapai 1A - 3A).</p>
+
+            <p><strong>Contoh: Modul Driver L298N</strong></p>
+            <ul>
+                <li><strong>Fungsi:</strong> Menggunakan konfigurasi <strong>H-Bridge</strong> (4 transistor di dalamnya) untuk membalik polaritas tegangan motor, sehingga motor bisa <strong>maju, mundur, dan berhenti</strong>.</li>
+                <li><strong>Pin Penting L298N:</strong>
+                    <ul>
+                        <li><code>VCC (12V)</code>: Sumber tegangan untuk motor (baterai).</li>
+                        <li><code>VSS (5V)</code>: Sumber tegangan untuk logika (dari mikrokontroler).</li>
+                        <li><code>IN1, IN2</code>: Kontrol arah untuk Motor A.</li>
+                        <li><code>IN3, IN4</code>: Kontrol arah untuk Motor B.</li>
+                        <li><code>ENA, ENB</code>: Pin <em>Enable</em>. Jika dihubungkan ke pin PWM mikrokontroler, kamu bisa mengatur <strong>kecepatan</strong> motornya.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="tips-box">
+                <i class="bi bi-diagram-3"></i> <strong>Koneksi Sederhana L298N dengan Arduino:</strong><br>
+                - L298N (12V) → Baterai (Sumber Motor)<br>
+                - L298N (5V) → Arduino (5V) *Perhatikan jumper pada L298N<br>
+                - L298N (IN1, IN2) → Arduino (Pin Digital)<br>
+                - L298N (ENA) → Arduino (Pin PWM)<br>
+                - L298N (OUT1, OUT2) → Motor DC / Stepper<br>
+                - GND L298N → GND Arduino & GND Baterai (Semua harus tersambung!)
+            </div>
+
+            <p><strong>Driver lain yang populer:</strong> L293D (versi chip tunggal), TB6612FNG (efisiensi tinggi), dan A4988 (khusus untuk Motor Stepper).</p>
+
+
+            <!-- ========== BAB II - 9. PROTOKOL KOMUNIKASI & INTERFACE ========== -->
+            <h2 id="bab2i" class="section-title">9. Protokol Komunikasi & Antarmuka (Interface)</h2>
+
+            <p>Ketika kita menghubungkan sensor, motor, atau modul ke mikrokontroler, kita perlu menggunakan "jalur komunikasi" yang disebut <strong>Interface</strong> atau <strong>Protokol Komunikasi</strong>. Memilih interface yang tepat sangat penting agar komponen bisa saling bertukar data dengan cepat dan stabil. Berikut adalah 5 interface utama yang harus kamu kuasai:</p>
+
+            <h5 class="sub-section">A. Digital I/O (Input / Output)</h5>
+            <ul>
+                <li><strong>Deskripsi:</strong> Ini adalah yang paling dasar. Pin digital hanya bisa membaca atau mengeluarkan dua kondisi: <strong>HIGH (1 / 5V atau 3.3V)</strong> dan <strong>LOW (0 / 0V)</strong>.</li>
+                <li><strong>Analogi:</strong> Seperti saklar lampu. Hidup (HIGH) atau Mati (LOW). Tidak ada nilai di antaranya.</li>
+                <li><strong>Contoh Modul:</strong> Saklar push-button, PIR Motion (HC-SR501), Relay.</li>
+                <li><strong>Kelebihan:</strong> Sangat sederhana, tidak perlu library rumit. Hanya butuh 1 pin data.</li>
+                <li><strong>Kekurangan:</strong> Hanya bisa mengirim status "ON/OFF", tidak bisa mengirim nilai numerik (kecuali dengan metode pulsa seperti PWM).</li>
+            </ul>
+
+            <h5 class="sub-section">B. Analog (ADC / Analog to Digital Converter)</h5>
+            <ul>
+                <li><strong>Deskripsi:</strong> Pin analog pada mikrokontroler (biasanya berlabel A0, A1, dst.) dapat membaca nilai tegangan yang <strong>kontinu</strong> antara 0V dan 5V (atau 3.3V). Mikrokontroler mengubah tegangan tersebut menjadi angka (biasanya 0 hingga 1023 pada Arduino).</li>
+                <li><strong>Analogi:</strong> Seperti penggaris yang bisa mengukur panjang (nilai berapa pun), bukan hanya "panjang" atau "pendek".</li>
+                <li><strong>Contoh Modul:</strong> LDR (cahaya), Potensiometer, LM35 (suhu), YL-69 (tanah).</li>
+                <li><strong>Kelebihan:</strong> Mampu membaca besaran fisik yang berubah-ubah (derajat cahaya, suhu, dll).</li>
+                <li><strong>Kekurangan:</strong> Nilai bisa "berisik" (noise) dan kurang presisi dibandingkan digital untuk jarak jauh.</li>
+            </ul>
+
+            <h5 class="sub-section">C. UART / Serial (Universal Asynchronous Receiver-Transmitter)</h5>
+            <ul>
+                <li><strong>Deskripsi:</strong> Komunikasi dua arah (full-duplex) menggunakan dua kabel: <strong>TX (Transmit)</strong> dan <strong>RX (Receive)</strong>. Sinyal dikirim secara <em>asynchronous</em> (tanpa clock bersama), sehingga kedua perangkat harus disetel dengan kecepatan (<em>baud rate</em>) yang sama, misal 9600 bps.</li>
+                <li><strong>Analogi:</strong> Seperti berbicara di telepon. Kamu bicara lewat TX, lawan bicara mendengar lewat RX, dan begitu pula sebaliknya. Harus sepakat kecepatan bicara agar tidak ada kata yang terpotong.</li>
+                <li><strong>Contoh Modul:</strong> Bluetooth HC-05/HC-06, GPS NEO-6M, modul Fingerprint AS608, ESP8266 (AT Command), dan Komunikasi dengan PC (USB Serial).</li>
+                <li><strong>Kelebihan:</strong> Sangat mudah digunakan (bisa langsung dipakai untuk debugging lewat Serial Monitor), jangkauan kabel bisa panjang, banyak perangkat lama yang mendukungnya.</li>
+                <li><strong>Kekurangan:</strong> Hanya cocok untuk koneksi <strong>1 master ke 1 slave</strong> (point-to-point). Tidak bisa menghubungkan banyak modul sekaligus dalam satu bus.</li>
+                <li><strong>Koneksi:</strong> TX modul → RX Arduino, RX modul → TX Arduino, GND → GND.</li>
+            </ul>
+
+            <h5 class="sub-section">D. I2C (Inter-Integrated Circuit)</h5>
+            <ul>
+                <li><strong>Deskripsi:</strong> Komunikasi serial <em>synchronous</em> menggunakan hanya <strong>2 kabel</strong>: <strong>SDA (Serial Data)</strong> dan <strong>SCL (Serial Clock)</strong>. Setiap perangkat yang terhubung memiliki <strong>alamat unik</strong> (misal 0x68). Mikrokontroler berperan sebagai Master yang memanggil alamat slave untuk mengirim/menerima data.</li>
+                <li><strong>Analogi:</strong> Seperti sebuah bus kota. Master adalah sopir bus yang berhenti di setiap halte (alamat I2C). Hanya penumpang (slave) di halte itu yang naik/turun.</li>
+                <li><strong>Contoh Modul:</strong> MPU6050 (gyro), BME280 (tekanan), BH1750 (cahaya), TCS34725 (warna), OLED Display 0.96", RTC DS3231.</li>
+                <li><strong>Kelebihan:</strong> Hanya butuh 2 pin (SDA, SCL) untuk menghubungkan <strong>puluhan sensor sekaligus</strong>! Sangat menghemat pin mikrokontroler.</li>
+                <li><strong>Kekurangan:</strong> Kecepatan data lebih lambat dibandingkan SPI. Harus <em>pull-up resistor</em> (biasanya sudah ada di modul) pada kedua jalur.</li>
+                <li><strong>Koneksi:</strong> SDA modul → SDA Arduino (biasanya A4), SCL modul → SCL Arduino (biasanya A5). GND → GND. VCC → 3.3V atau 5V (sesuai modul).</li>
+            </ul>
+
+            <h5 class="sub-section">E. SPI (Serial Peripheral Interface)</h5>
+            <ul>
+                <li><strong>Deskripsi:</strong> Komunikasi serial <em>synchronous</em> berkecepatan tinggi menggunakan <strong>4 kabel</strong>: <strong>MOSI (Master Out Slave In)</strong>, <strong>MISO (Master In Slave Out)</strong>, <strong>SCK (Serial Clock)</strong>, dan <strong>SS/CS (Slave Select / Chip Select)</strong>. Master memilih slave mana yang akan diajak bicara dengan menarik pin CS/SS ke LOW.</li>
+                <li><strong>Analogi:</strong> Seperti rapat di kelas. Guru (Master) memilih siswa tertentu (SS/CS dipilih) untuk berbicara. Guru bicara di MOSI, siswa menjawab di MISO, dan jam (SCK) mengatur irama bicara.</li>
+                <li><strong>Contoh Modul:</strong> RC522 (RFID), Ethernet Shield, Kartu SD (MicroSD), Layar TFT, Sensor MAX6675 (Thermocouple).</li>
+                <li><strong>Kelebihan:</strong> Sangat <strong>cepat</strong> (kecepatan clock bisa mencapai puluhan MHz). Cocok untuk transfer data besar seperti gambar atau file.</li>
+                <li><strong>Kekurangan:</strong> <strong>Membutuhkan banyak pin</strong>. Untuk setiap sensor baru yang ditambahkan, setidaknya membutuhkan 1 pin SS/CS tambahan (kecuali jika menggunakan daisy-chain yang rumit).</li>
+                <li><strong>Koneksi:</strong> MOSI, MISO, SCK dihubungkan ke semua modul secara paralel. Sedangkan pin CS/SS masing-masing modul dihubungkan ke pin digital berbeda di Arduino.</li>
+            </ul>
+
+            <div class="danger-box">
+                <i class="bi bi-exclamation-triangle-fill"></i> <strong>🔋 Ringkasan Praktis untuk Pemula:</strong><br>
+                <ul class="mb-0">
+                    <li>Gunakan <strong>I2C</strong> untuk menambahkan banyak sensor hanya dengan 2 pin (SDA/SCL). <em>Cocok untuk proyek yang irit pin.</em></li>
+                    <li>Gunakan <strong>SPI</strong> untuk modul yang membutuhkan kecepatan tinggi (seperti layar, kartu SD, RFID). <em>Cocok jika Anda punya banyak pin yang tersedia.</em></li>
+                    <li>Gunakan <strong>UART</strong> untuk modul komunikasi jarak dekat (Bluetooth, GPS) atau debugging. <em>Ingat baud rate harus sama!</em></li>
+                    <li>Gunakan <strong>Analog</strong> untuk sensor sederhana yang menghasilkan tegangan variabel (LDR, LM35).</li>
+                    <li>Gunakan <strong>Digital</strong> untuk saklar, tombol, atau deteksi hanya ON/OFF (PIR).</li>
+                </ul>
+            </div>
+
+            <!-- ========== BAB II - 10. SENSOR & TRANSDUSER (DENGAN PLACEHOLDER GAMBAR) ========== -->
+            <h2 id="bab2j" class="section-title">10. Sensor dan Transduser (Indra Robot)</h2>
+            
+            <p>Jika motor adalah "otot" robot, maka <strong>sensor</strong> adalah "mata, telinga, dan hidung" robot. Sensor mengubah besaran fisik di dunia nyata (seperti suhu, jarak, cahaya, atau gas) menjadi <strong>sinyal listrik</strong> yang bisa dibaca oleh mikrokontroler. Berikut adalah panduan lengkapnya.</p>
+
+            <h5 class="sub-section">🌡️ A. Sensor Suhu, Kelembapan & Lingkungan</h5>
+            <ul>
+                <li><strong>DHT11 / DHT22:</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/dht11-dht22.jpg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/skematik_dht11-dht12.png" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Sensor digital yang mengukur suhu dan kelembapan relatif udara menggunakan <em>thermistor</em> dan <em>capacitive humidity sensor</em>. Data dikirim dalam format digital 1-Wire.<br>
+                    <strong>【Contoh Penggunaan】</strong> Membuat termometer ruangan, sistem kontrol otomatis kipas angin jika suhu di atas 30°C, atau stasiun cuaca mini. (DHT22 untuk akurasi lebih tinggi).<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, DATA (Digital). Membutuhkan resistor pull-up 4.7kΩ. Interface: 1-Wire.</li>
+                
+                <li><strong>DS18B20 (Waterproof):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/DS18B20.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <!-- <div class="text-center my-2"><div class="img-placeholder"><i class="bi bi-diagram-3 fs-1"></i><br><strong>[Skematik DS18B20]</strong><br><small>Tempatkan gambar wiring/skematik di sini</small></div></div> -->
+                    <strong>【Deskripsi】</strong> Sensor suhu digital dengan akurasi tinggi (±0.5°C). Varian <em>waterproof</em>-nya dilindungi selubung stainless steel, cocok untuk cairan. Setiap chip memiliki alamat unik (ROM).<br>
+                    <strong>【Contoh Penggunaan】</strong> Sistem pemantau suhu kolam renang, sensor suhu air radiator di mobil, atau kontrol suhu akuarium. Bisa dipasang puluhan sensor dalam 1 kabel.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, DQ (Data). Membutuhkan resistor pull-up 4.7kΩ. Interface: 1-Wire.</li>
+
+                <li><strong>LM35:</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/LM35.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/skematik-lm35.jpg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Sensor suhu analog murah dan mudah digunakan. Output tegangannya linier: 10mV per 1°C (0°C = 0V, 25°C = 250mV).<br>
+                    <strong>【Contoh Penggunaan】</strong> Projek IoT pemula, indikator suhu ruangan berbasis LED (misal, nyalakan LED merah jika suhu > 30°C).<br>
+                    <strong>【Pinout & Interface】</strong> VCC (4-30V), GND, VOUT (Analog). Interface: Analog (ADC).</li>
+
+                <li><strong>BMP280 / BME280:</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/BMP280-vs-BME280.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/BME280-skematik.jpg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Sensor presisi tinggi untuk tekanan atmosfer, suhu, dan (khusus BME280) kelembapan. Sering digunakan untuk menentukan ketinggian tempat (altimeter).<br>
+                    <strong>【Contoh Penggunaan】</strong> Stasiun cuaca IoT, pelacak ketinggian drone untuk menjaga kestabilan terbang (hold altitude).<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3V), GND, SDA/SCL (I2C) atau MOSI/MISO/SCK/CS (SPI). Interface: I2C / SPI.</li>
+
+                <li><strong>YL-69 (Kelembapan Tanah):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                           <img loading="lazy" src="assets/img/YL-69.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2"><div class="img-placeholder"><i class="bi bi-diagram-3 fs-1"></i><br><strong>[Skematik YL-69]</strong><br><small>Tempatkan gambar wiring/skematik di sini</small></div></div> -->
+                    <strong>【Deskripsi】</strong> Mengukur konduktivitas listrik tanah. Semakin basah tanah, semakin kecil hambatannya (nilai analog semakin besar).<br>
+                    <strong>【Contoh Penggunaan】</strong> Sistem penyiraman tanaman otomatis (jika tanah kering, pompa air menyala), monitoring hidroponik.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, AO (Analog) & DO (Digital). Interface: Analog atau Digital (dengan trimpot).</li>
+
+                <li><strong>Raindrops / Water Level Sensor:</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/rain-sensitive-sensor-module-rain-drop-detection-sensor-module-raindrops-humidity-sensor-for-arduino-32482961490156_600x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2"><div class="img-placeholder"><i class="bi bi-diagram-3 fs-1"></i><br><strong>[Skematik Raindrops]</strong><br><small>Tempatkan gambar wiring/skematik di sini</small></div></div> -->
+                    <strong>【Deskripsi】</strong> Raindrops mendeteksi tetesan air hujan di papan PCB. Water level menggunakan serangkaian elektroda untuk mendeteksi ketinggian air.<br>
+                    <strong>【Contoh Penggunaan】</strong> Alarm hujan otomatis (menutup jemuran), pompa penguras air saat banjir, indikator tangki penuh.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, AO (Analog), DO (Digital).</li>
+            </ul>
+
+            <h5 class="sub-section">📏 B. Sensor Jarak & Gerak</h5>
+            <ul>
+                <li><strong>HC-SR04 (Ultrasonik):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/hc-sr04.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2"><div class="img-placeholder"><i class="bi bi-diagram-3 fs-1"></i><br><strong>[Skematik HC-SR04]</strong><br><small>Tempatkan gambar wiring/skematik di sini</small></div></div> -->
+                    <strong>【Deskripsi】</strong> Memancarkan gelombang suara ultrasonik dan mengukur waktu pantulan (<em>echo</em>) untuk menghitung jarak. Prinsipnya seperti kelelawar.<br>
+                    <strong>【Contoh Penggunaan】</strong> Robot penghindar rintangan (obstacle avoidance), pengukur jarak parkir mobil, atau pengukur volume air di tangki.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (5V), GND, TRIG, ECHO. Interface: Digital (Pulse). <strong>⚠️</strong> Jika memakai ESP32, ECHO harus diturunkan tegangannya (voltage divider).</li>
+
+                <li><strong>HC-SR501 (PIR Motion):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/HC-SR501.jpg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/HC-SR501_skematik.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Mendeteksi perubahan radiasi inframerah (panas) dari tubuh manusia atau hewan yang bergerak.<br>
+                    <strong>【Contoh Penggunaan】</strong> Lampu otomatis menyala saat ada orang masuk ruangan, sistem keamanan pendeteksi pencuri, atau penyemprot hand sanitizer otomatis.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (5V), GND, OUT (Digital). Interface: Digital. (Ada trimpot untuk sensitivitas dan durasi).</li>
+
+                <li><strong>IR Obstacle / TCRT5000:</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/IR_Obstacle.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2"><div class="img-placeholder"><i class="bi bi-diagram-3 fs-1"></i><br><strong>[Skematik TCRT5000]</strong><br><small>Tempatkan gambar wiring/skematik di sini</small></div></div> -->
+                    <strong>【Deskripsi】</strong> Memancarkan sinar inframerah dan membaca intensitas pantulannya. Benda gelap menyerap IR (nilai rendah), benda terang memantulkan IR (nilai tinggi).<br>
+                    <strong>【Contoh Penggunaan】</strong> Robot <em>Line Follower</em> (membaca garis hitam di atas lantai putih), robot penghindar rintangan jarak dekat.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, OUT (Digital/Analog). Interface: Digital/Analog.</li>
+
+                <li><strong>VL53L0X (ToF Laser):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/VL53L0X.jpg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/VL53L0X_skematik.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Menggunakan teknologi <em>Time-of-Flight</em> (laser). Mengukur waktu tempuh pulsa cahaya mengenai objek dan kembali. Akurasi sangat tinggi (milimeter).<br>
+                    <strong>【Contoh Penggunaan】</strong> Drone pengukur ketinggian saat landing, deteksi gesture tangan tanpa sentuh (touchless control).<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3V), GND, SDA/SCL (I2C). Interface: I2C.</li>
+            </ul>
+
+            <h5 class="sub-section">💨 C. Sensor Gas & Kualitas Udara (Seri MQ)</h5>
+            <ul>
+                <li><strong>MQ-2 (LPG/Asap) / MQ-7 (CO) / MQ-135 (Udara) / MQ-4 (Metana):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/MQ_series.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/MQ2_skematik.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Sensor dengan <em>heater</em> internal yang memanaskan elemen <em>tin dioxide</em>. Ketika bertemu dengan gas target, konduktivitasnya berubah (nilai analog berubah).<br>
+                    <strong>【Contoh Penggunaan】</strong> MQ-2: Detektor kebocoran gas kompor (LPG) dan alarm asap rokok. MQ-135: Pemantau kualitas udara di dalam ruangan.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (5V), GND, AO (Analog), DO (Digital). Interface: Analog & Digital. Membutuhkan waktu warm-up (30 detik) dan sumber daya 200mA.</li>
+            </ul>
+
+            <h5 class="sub-section">👁️ D. Sensor Cahaya & Warna</h5>
+            <ul>
+                <li><strong>LDR Module:</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/LDR_Module.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/LDR_Module_skematik.png" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> <em>Light Dependent Resistor</em>. Hambatan akan turun drastis saat terkena cahaya. Pin DO menggunakan komparator (LM393) untuk menghasilkan output HIGH/LOW.<br>
+                    <strong>【Contoh Penggunaan】</strong> Lampu jalan otomatis (menyala saat malam), sensor untuk mengatur kecerahan layar LCD secara otomatis.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, AO, DO. Interface: Analog & Digital.</li>
+
+                <li><strong>BH1750 (Digital Light):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/BH1750.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/bh1750_skematik.png" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Sensor intensitas cahaya digital menggunakan komunikasi I2C. Outputnya langsung berupa satuan <strong>Lux</strong> (lx) yang standar, bukan ADC mentah.<br>
+                    <strong>【Contoh Penggunaan】</strong> Monitoring rumah kaca (tanaman butuh intensitas cahaya tertentu), pengatur lampu akuarium sesuai matahari.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, SDA/SCL (I2C), ADDR (I2C address). Interface: I2C.</li>
+
+                <li><strong>TCS3200 / TCS34725 (Color Sensor):</strong> <br>
+                    <strong>【Gambar Sensor TCS34725】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/TCS34725.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Gambar Sensor TCS3200】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/TCS3200.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring TCS3200】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/TCS3200-Color-Sensor-Circuit.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Mampu membedakan komponen warna Red, Green, dan Blue (RGB) dari sebuah objek menggunakan filter warna.<br>
+                    <strong>【Contoh Penggunaan】</strong> Mesin sortir barang berdasarkan warna, robot pendeteksi bola warna-warni, atau pengenalan warna lampu lalu lintas.<br>
+                    <strong>【Pinout & Interface】</strong> TCS34725: VCC (3.3V), GND, SDA/SCL (I2C). TCS3200: Output Frekuensi/Pulse. Interface: I2C / Pulse.</li>
+
+                <li><strong>Flame Sensor (Api):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/Flame_Sensor.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Gambar Flame Sensor Paralel】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/Flame_Sensor_paralel.jpeg" alt="">
+                        </div>
+                    </div>
+                    
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/flame_sensor_skematik.png" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Mendeteksi radiasi inframerah yang dihasilkan oleh nyala api. Output analog menunjukkan intensitas api.<br>
+                    <strong>【Contoh Penggunaan】</strong> Robot pemadam kebakaran, alarm kebakaran dini, sistem shut-off otomatis kompor gas.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, AO, DO. Interface: Analog & Digital. (Hindari sinar matahari langsung karena sensitif IR).</li>
+            </ul>
+
+            <h5 class="sub-section">🧭 E. Sensor Kecepatan, Orientasi, & Getaran</h5>
+            <ul>
+                <li><strong>MPU6050 (Gyro & Accelerometer):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/MPU6050.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/MPU6050_skematik.png" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Sensor 6-axis. <em>Accelerometer</em> mendeteksi percepatan/gravitasi, <em>Gyroscope</em> mendeteksi kecepatan sudut. Kombinasinya dapat menentukan orientasi 3D (Roll, Pitch, Yaw).<br>
+                    <strong>【Contoh Penggunaan】</strong> Pengendali drone (auto-leveling), robot balancing (self-balancing robot), sensor kemiringan untuk game controller.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3V!), GND, SDA/SCL (I2C), AD0, INT. Interface: I2C. <strong>⚠️</strong> Jangan gunakan 5V tanpa regulator!</li>
+
+                <li><strong>SW-420 (Vibration):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/SW-420.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/SW-420_skematik.png" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Menggunakan bola logam di dalam tabung. Saat terjadi getaran, bola bergerak dan menyentuh kontak, mengubah output dari HIGH ke LOW.<br>
+                    <strong>【Contoh Penggunaan】</strong> Alarm anti-maling (jika lemari digoyang), deteksi gempa bumi mini.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, DO (Digital). Interface: Digital.</li>
+
+                <li><strong>Speed Sensor (LM393 + Wheel):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/LM393_populer.jpg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Gambar Sensor dan Encoder Disk】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/LM393.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/LM393_skematik.png" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Sensor celah optik. Saat celah melewati cahaya (atau terhalang), output berubah HIGH/LOW. Dengan menghitung pulsa, kita tahu RPM.<br>
+                    <strong>【Contoh Penggunaan】</strong> Menghitung kecepatan robot (<em>odometry</em>), tachometer untuk mobil mainan.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, AO, DO. Interface: Digital (Pulse).</li>
+            </ul>
+
+            <h5 class="sub-section">🩸 F. Sensor Biometrik & Medis</h5>
+            <ul>
+                <li><strong>MAX30100 / MAX30102 (Heart Rate & Oximeter):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/MAX30100.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/MAX30102_skematik.jpg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Menggunakan LED merah dan IR untuk mengukur absorbansi cahaya oleh darah. Dengan algoritma, ia bisa menghitung BPM (detak jantung) dan SpO2 (kadar oksigen).<br>
+                    <strong>【Contoh Penggunaan】</strong> Gelang kesehatan, monitor pasien rumah sakit, alat deteksi kelelahan pengemudi.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (1.8V/3.3V - hati-hati), GND, SDA/SCL (I2C), INT. Interface: I2C.</li>
+                
+                <li><strong>Pulse Sensor:</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/Pulse_Sensor.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/pulse_sensor_skematik.png" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Sensor analog plug-and-play yang menempel di jari. Mendeteksi detak jantung melalui perubahan volume darah di jaringan kapiler.<br>
+                    <strong>【Contoh Penggunaan】</strong> Projek deteksi detak jantung untuk pemula, sistem latihan olahraga.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, OUT (Analog). Interface: Analog (ADC).</li>
+
+                <li><strong>AS608 / R307 (Fingerprint):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/AS608.avif" alt="">
+                        </div>
+                    </div>
+                    <strong>【Gambar Board Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/AS608_board.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Gambar Capture Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/AS608_capture.jpg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Gambar R503 Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/R503.jpg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Gambar R302 Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/R302.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring Pinout R302】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/R302_pinout.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Modul pemindai sidik jari yang menyimpan data citra sidik jari di memori internalnya. Komunikasi dengan mikrokontroler menggunakan UART serial.<br>
+                    <strong>【Contoh Penggunaan】</strong> Kunci pintu digital biometrik, absensi pegawai, kotak aman uang.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, TX, RX (UART). Interface: UART (Serial). (TX modul ke RX Arduino, dan sebaliknya).</li>
+            </ul>
+
+            <h5 class="sub-section">🔐 G. Sensor Otentikasi & Kontak</h5>
+            <ul>
+                <li><strong>RC522 (RFID):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/RC522.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Gambar RFID Tag/Card】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/RFID_tag.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Gambar RFID Chip】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/RFID_tag_chip.jpeg" alt="">
+                        </div>
+                    </div>
+                    <!-- <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2"><div class="img-placeholder"><i class="bi bi-diagram-3 fs-1"></i><br><strong>[Skematik RC522]</strong><br><small>Tempatkan gambar wiring/skematik di sini</small></div></div> -->
+                    <strong>【Deskripsi】</strong> Membaca data dari kartu atau tag RFID menggunakan gelombang radio 13.56 MHz. Komunikasi dengan mikrokontroler menggunakan SPI.<br>
+                    <strong>【Contoh Penggunaan】</strong> Sistem absensi berbasis kartu, kunci pintu dengan RFID tag, pengisian saldo e-money mini.<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3V), GND, SDA (CS), SCK, MOSI, MISO, RST. Interface: SPI. <strong>⚠️</strong> Pastikan tegangan VCC 3.3V!</li>
+
+                <li><strong>Ky-003 (Hall Effect):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/Ky-003.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/Ky-003_skematik.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Sensor yang merespons medan magnet. Saat didekatkan dengan magnet (kutub selatan), outputnya akan berubah (biasanya LOW).<br>
+                    <strong>【Contoh Penggunaan】</strong> Penghitung putaran motor (dengan menempelkan magnet di roda), sensor pintu kulkas terbuka (dengan magnet di pintu).<br>
+                    <strong>【Pinout & Interface】</strong> VCC (3.3-5V), GND, OUT (Digital). Interface: Digital.</li>
+
+                <li><strong>MC-38 (Reed Switch / Pintu):</strong> <br>
+                    <strong>【Gambar Sensor】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/MC-38.webp" alt="">
+                        </div>
+                    </div>
+                    <strong>【Skematik Wiring】</strong>
+                    <div class="text-center my-2">
+                        <div class="img-placeholder">
+                            <img loading="lazy" src="assets/img/MC-38_skematik.jpeg" alt="">
+                        </div>
+                    </div>
+                    <strong>【Deskripsi】</strong> Saklar magnetik (reed switch). Dua lempeng logam di dalam tabung akan tertarik dan menyatu jika didekatkan dengan magnet (saklar menutup).<br>
+                    <strong>【Contoh Penggunaan】</strong> Sensor pintu/jendela terbuka untuk sistem alarm rumah, sensor tutup botol/ember.<br>
+                    <strong>【Pinout & Interface】</strong> 2 kabel (NO/NC). Interface: Digital (Switch). Gunakan mode <code>INPUT_PULLUP</code> pada Arduino.</li>
+            </ul>
+            
+            <div class="tips-box">
+                <i class="bi bi-lightbulb"></i> <strong>Tips Praktis:</strong> Sebelum memulai wiring, selalu cek datasheet modul Anda. Sensor dengan tegangan 3.3V (seperti MPU6050, RC522, BME280) seringkali memerlukan konverter level tegangan (<em>level shifter</em>) jika menggunakan Arduino Uno (5V) agar tidak terbakar. Dan pastikan pin <em>ground</em> (GND) semua perangkat terhubung menjadi satu!</div>
+
+
+            <!-- ============================================================ -->
+            <!-- BAB III -->
+            <!-- ============================================================ -->
+            <h1 id="bab3" class="chapter-title"><span class="badge-chapter badge-bab3">BAB III</span> Dasar Pemrograman</h1>
+
+            <h2 id="bab3a" class="section-title">1. Algoritma</h2>
+
+            <p><strong>Algoritma</strong> adalah cara atau langkah-langkah logis untuk memecahkan suatu masalah. Istilah ini berasal dari ilmuwan muslim <strong>Al-Kwarizmi</strong>.</p>
+
+            <div class="analogi-box">
+                <i class="bi bi-cup-hot"></i> <strong>Contoh Klasik:</strong> Kamu punya 3 gelas: A (susu), B (kopi), C (kosong). Ingin memindahkan susu ke B dan kopi ke A tanpa tercampur.
+                <br><strong>Langkah:</strong> Tuang A → C, lalu B → A, lalu C → B. Selesai! Itu algoritma.
+            </div>
+
+            <h2 id="bab3b" class="section-title">2. Variable</h2>
+
+            <p><strong>Variable</strong> adalah <strong>tempat menyimpan data</strong> di dalam program. Data bisa berupa angka, teks, atau nilai logika.</p>
+
+            <div class="code-block">
+                <span class="com">// Contoh variable di Arduino (C++)</span>
+                <span class="kw">int</span> umur = 17;                <span class="com">// bilangan bulat</span>
+                <span class="kw">float</span> suhu = 36.5;             <span class="com">// bilangan desimal</span>
+                <span class="kw">String</span> nama = <span class="str">"Robot"</span>;       <span class="com">// teks</span>
+                <span class="kw">bool</span> hidup = <span class="kw">true</span>;          <span class="com">// benar/salah</span>
+            </div>
+
+            <h2 id="bab3c" class="section-title">3. Tipe Data</h2>
+
+            <ul>
+                <li><strong>char:</strong> satu karakter (huruf/angka/simbol). Contoh: <code>char huruf = 'A';</code></li>
+                <li><strong>String:</strong> kumpulan karakter. Contoh: <code>String pesan = "Halo";</code></li>
+                <li><strong>int:</strong> bilangan bulat. Contoh: <code>int angka = 10;</code></li>
+                <li><strong>float:</strong> bilangan desimal. Contoh: <code>float nilai = 3.14;</code></li>
+                <li><strong>bool:</strong> nilai benar/salah. Contoh: <code>bool selesai = false;</code></li>
+                <li><strong>Array:</strong> kumpulan data dengan tipe yang sama. Contoh: <code>int pin[] = {2, 4, 8, 3, 6};</code></li>
+            </ul>
+
+            <h2 id="bab3d" class="section-title">4. Function</h2>
+
+            <p><strong>Function (fungsi)</strong> adalah blok kode yang bisa dipanggil berulang kali. Membuat program lebih terstruktur dan mudah diperbaiki.</p>
+
+            <div class="code-block">
+                <span class="com">// Contoh fungsi sederhana</span>
+                <span class="kw">void</span> <span class="fn">nyalakanLED</span>() {
+                    digitalWrite(13, HIGH);
+                }
+
+                <span class="com">// Fungsi dengan parameter & return</span>
+                <span class="kw">int</span> <span class="fn">tambah</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) {
+                    <span class="kw">return</span> a + b;
+                }
+            </div>
+
+            <h2 id="bab3e" class="section-title">5. Array</h2>
+
+            <p><strong>Array</strong> adalah struktur data untuk menyimpan <strong>banyak nilai</strong> dengan tipe data yang sama dalam satu variabel. Indeks dimulai dari <strong>0</strong>.</p>
+
+            <div class="code-block">
+                <span class="com">// Deklarasi array</span>
+                <span class="kw">int</span> myInts[6];              <span class="com">// 6 elemen (indeks 0-5)</span>
+                <span class="kw">float</span> myFloats[4];           <span class="com">// 4 elemen</span>
+                <span class="kw">int</span> myPins[] = {2, 4, 8, 3, 6};  <span class="com">// ukuran otomatis 5</span>
+                <span class="com">// Akses elemen: myPins[0] = 2, myPins[2] = 8</span>
+            </div>
+
+            <h2 id="bab3f" class="section-title">6. Extension &amp; Catatan Penting</h2>
+
+            <p><strong>Extension</strong> adalah penamaan file sesuai bahasa pemrograman: PHP (<code>.php</code>), JavaScript (<code>.js</code>), Python (<code>.py</code>), C++ (<code>.cpp</code>).</p>
+
+            <div class="tips-box">
+                <i class="bi bi-check-circle"></i> <strong>Catatan Penting:</strong>
+                <ul class="mb-0">
+                    <li>Setiap bahasa punya <strong>variable</strong>.</li>
+                    <li>Setiap bahasa punya <strong>tipe data</strong> (beda-beda).</li>
+                    <li>Setiap bahasa punya <strong>function</strong>.</li>
+                    <li>Cara deklarasi function <strong>berbeda</strong> antar bahasa.</li>
+                </ul>
+            </div>
+
+            <h2 id="bab3g" class="section-title">7. Pemrograman Mikrokontroler</h2>
+
+            <p>Mikrokontroler Arduino, ESP8266, dan ESP32 dapat diprogram dengan <strong>C++</strong> dan <strong>Python</strong> (ESP via MicroPython). Dalam pembelajaran ini, kita <strong>fokus pada C++</strong> karena ketiga board tersebut mendukungnya.</p>
+
+            <div class="alert alert-primary d-flex align-items-center gap-2" role="alert">
+                <i class="bi bi-info-circle-fill fs-4"></i>
+                <div><strong>Semangat!</strong> Kamu sudah menyelesaikan semua materi dasar. Selanjutnya, praktik langsung dengan merakit dan memprogram robot!</div>
+            </div>
+
+            <!-- ========== FOOTER ========== -->
+            <hr class="my-5" />
+            <div class="text-center text-muted border-top pt-4">
+                <p><strong>Belajar Robotika &amp; IOT</strong> — Muwatok Project</p>
+                <p class="small">Made with love by Muwatok Project</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== LIGHTBOX HTML ========== -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+            <img loading="lazy" id="lightbox-img" src="" alt="Gambar Diperbesar" />
+        </div>
+    </div>
+    <!-- ========== END LIGHTBOX ========== -->
+
+    <!-- ========== FAB / OFFICANVAS TOC ========== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="tocOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title"><i class="bi bi-list-ul me-2"></i>Daftar Isi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="toc-list">
+                <li><a href="#bab1" class="toc-link"><span class="badge-chapter">BAB I</span> Pengenalan</a></li>
+                <li><a href="#bab1a" class="toc-link" style="padding-left:2rem;">A. Mekanikal</a></li>
+                <li><a href="#bab1b" class="toc-link" style="padding-left:2rem;">B. Elektronika</a></li>
+                <li><a href="#bab1c" class="toc-link" style="padding-left:2rem;">C. Pemrograman</a></li>
+                <li><a href="#bab2" class="toc-link"><span class="badge-chapter badge-bab2">BAB II</span> Dasar Elektronika</a></li>
+                <li><a href="#bab2a" class="toc-link" style="padding-left:2rem;">1. Arus &amp; Tegangan</a></li>
+                <li><a href="#bab2b" class="toc-link" style="padding-left:2rem;">2. Power Supply</a></li>
+                <li><a href="#bab2c" class="toc-link" style="padding-left:2rem;">3. Dioda</a></li>
+                <li><a href="#bab2d" class="toc-link" style="padding-left:2rem;">4. Kapasitor</a></li>
+                <li><a href="#bab2e" class="toc-link" style="padding-left:2rem;">5. Resistor</a></li>
+                <li><a href="#bab2f" class="toc-link" style="padding-left:2rem;">6. Transistor</a></li>
+                <li><a href="#bab2g" class="toc-link" style="padding-left:2rem;">7. IC &amp; Mikrokontroler</a></li>
+                <li><a href="#bab2h" class="toc-link" style="padding-left:2rem;">8. Motor &amp; Driver</a></li>
+                <li><a href="#bab2i" class="toc-link" style="padding-left:2rem;">9. Interface (Komunikasi)</a></li>
+                <li><a href="#bab2j" class="toc-link" style="padding-left:2rem;">10. Sensor &amp; Transduser</a></li>
+                <li><a href="#bab3" class="toc-link"><span class="badge-chapter badge-bab3">BAB III</span> Dasar Pemrograman</a></li>
+                <li><a href="#bab3a" class="toc-link" style="padding-left:2rem;">1. Algoritma</a></li>
+                <li><a href="#bab3b" class="toc-link" style="padding-left:2rem;">2. Variable</a></li>
+                <li><a href="#bab3c" class="toc-link" style="padding-left:2rem;">3. Tipe Data</a></li>
+                <li><a href="#bab3d" class="toc-link" style="padding-left:2rem;">4. Function</a></li>
+                <li><a href="#bab3e" class="toc-link" style="padding-left:2rem;">5. Array</a></li>
+                <li><a href="#bab3f" class="toc-link" style="padding-left:2rem;">6. Extension</a></li>
+                <li><a href="#bab3g" class="toc-link" style="padding-left:2rem;">7. Pemrograman Mikrokontroler</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ========== TOMBOL FAB KIRI BAWAH (DOWNLOAD PDF) ========== -->
+    <button class="fab-download position-fixed bottom-0 start-0 m-4 shadow-lg" onclick="window.print()" title="Download / Cetak ke PDF">
+        <i class="bi bi-download fs-2"></i>
+    </button>
+
+    <!-- ========== TOMBOL FAB KANAN BAWAH (DAFTAR ISI) ========== -->
+    <button class="btn btn-primary fab-toc position-fixed bottom-0 end-0 m-4 shadow-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" title="Buka daftar isi">
+        <i class="bi bi-list fs-2"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+    
+    <!-- ========== LIGHTBOX JAVASCRIPT ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Tangani Offcanvas TOC
+            var offcanvasEl = document.getElementById('tocOffcanvas');
+            var offcanvas = new bootstrap.Offcanvas(offcanvasEl);
+
+            document.querySelectorAll('#tocOffcanvas .toc-link').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = document.querySelector(this.getAttribute('href'));
+                    offcanvas.hide();
+                    if (target) {
+                        setTimeout(function() {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 280);
+                    }
+                });
+            });
+
+            // 2. Tangani Lightbox (Double Click)
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const images = document.querySelectorAll('.book-card img');
+
+            images.forEach(img => {
+                // Tambahkan cursor pointer sebagai visual
+                img.style.cursor = 'pointer';
+
+                img.addEventListener('dblclick', function(e) {
+                    e.preventDefault(); // Mencegah aksi double click bawaan browser
+                    const src = this.getAttribute('src');
+                    if (src) {
+                        lightboxImg.setAttribute('src', src);
+                        lightbox.classList.add('show');
+                        document.body.style.overflow = 'hidden'; // Mencegah scroll background
+                    }
+                });
+            });
+        });
+
+        // Fungsi Menutup Lightbox
+        function closeLightbox(e) {
+            const lightbox = document.getElementById('lightbox');
+            // Hanya menutup jika yang diklik adalah overlay latar belakang atau tombol close
+            if (e.target === lightbox || e.target.closest('.lightbox-close')) {
+                lightbox.classList.remove('show');
+                document.body.style.overflow = ''; // Mengembalikan scroll
+            }
+        }
+        
+        // Menutup dengan tombol ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('show')) {
+                    lightbox.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    </script>
+    <!-- ========== END LIGHTBOX JAVASCRIPT ========== -->
+
+</body>
+</html>
